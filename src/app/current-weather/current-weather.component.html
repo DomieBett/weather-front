@@ -1,3 +1,45 @@
-<p>
-  current-weather works!
-</p>
+<h4 class="title">Weather</h4>
+
+<div [ngSwitch]='status'>
+  <div *ngSwitchCase="'active'">
+
+    <div class="well">
+      <div class="weather-intro">
+        <h4 class="text-primary" id="weather-main">{{ weatherObj.weather.main }}</h4>
+      </div>
+      <div id="weather-icon">
+        <img class="icon" [attr.src]="weatherObj.icon"/>
+      </div>
+      <h4 class="text-primary" id="place">{{ weatherObj.place }}</h4>
+    </div>
+
+    <div id="weather-details">
+
+      <ul class="list-unstyled list-inline">
+        <li><strong>Description:</strong>
+          <span id="description">{{ weatherObj.weather.description }}</span>
+        </li>
+        <span>   </span>
+        <li><strong>Temperature:</strong> <span class="temp" id="temp"> {{ weatherObj.main.temp }}</span>
+          <span class="format"> &deg;F</span>
+        </li>
+        <br>
+        <li><strong>Wind Speed:</strong> <span id="wind-speed">{{ weatherObj.wind.speed }}</span> km/h</li>
+        <span>   </span>
+        <li><strong>Pressure:</strong> <span id="pressure">{{ weatherObj.main.pressure }}</span></li><br>
+        <li><strong>Humidity:</strong> <span id="humidity">{{ weatherObj.main.humidity }}</span></li>
+        <span>   </span>
+        <li><strong>Minimum Temperature:</strong> <span class="temp" id="min-temp">{{ weatherObj.main.temp_min }}</span>
+          <span class="format">&deg;F</span>
+        </li><br>
+        <li><strong>Maximum Temperature:</strong> <span class="temp" id="max-temp">{{ weatherObj.main.temp_max }}</span>
+          <span class="format">&deg;F</span>
+        </li>
+      </ul>
+    </div>
+  </div>
+
+  <div *ngSwitchCase="'loading'" class="loading text-center">
+    <p class="loading-icon">loading<br><i class="fa fa-spinner fa-spin"></i></p>
+  </div>
+</div>

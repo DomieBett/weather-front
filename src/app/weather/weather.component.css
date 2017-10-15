@@ -1,0 +1,8 @@
+.bg-dark {
+	background-color: #e2e2e2;
+}
+
+.graph-container {
+	overflow: scroll;
+	overflow-y: hidden;
+}
